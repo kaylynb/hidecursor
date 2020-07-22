@@ -1,0 +1,9 @@
+{
+  "name": "Hide Cursor",
+  "description": "Hides mouse cursor after user inactivity.",
+  "uuid": "hidecursor@kaylyn.ink",
+  "shell-version": [
+    "3.36"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.hidecursor"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "hidecursor",
+  "version": "0.0.0",
+  "description": "",
+  "license": "GPL-2.0-or-later",
+  "standard": {
+    "globals": [
+      "imports",
+      "log"
+    ]
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}

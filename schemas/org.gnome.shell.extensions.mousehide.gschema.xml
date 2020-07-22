@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema id="org.gnome.shell.extensions.hidecursor" path="/org/gnome/shell/extensions/hidecursor/">
+	<key name="hide-time" type="d">
+		<default>2.0</default>
+		<summary>Hide cursor time</summary>
+		<description>
+			Amount of time to wait in seconds until hiding the mouse cursor.
+		</description>
+	</key>
+	</schema>
+</schemalist>
