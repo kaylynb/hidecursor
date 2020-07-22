@@ -36,7 +36,7 @@ function buildPrefsWidget () { // eslint-disable-line no-unused-vars
   }), false, false, 0)
 
   const sectionVbox = new Gtk.VBox({ margin_left: 15, margin_top: 8, margin_bottom: 8 })
-  const spinner = Gtk.SpinButton.new_with_range(0.0, 600.0, 0.1)
+  const spinner = Gtk.SpinButton.new_with_range(0.0, 600.0, 0.5)
   spinner.set_value(settings.get_double('hide-time'))
   const sectionHbox = new Gtk.HBox()
   sectionHbox.pack_start(new Gtk.Label({

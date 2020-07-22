@@ -24,26 +24,31 @@ const HIDE_TIME_KEY = 'hide-time'
 
 class Extension {
   constructor () {
-    this._settings = ExtensionUtils.getSettings()
-
-    this._settings.connect(`changed::${HIDE_TIME_KEY}`, this._hideTimeChanged.bind(this))
-
-    this._cursorTracker = CursorTracker.get_for_display(global.display)
-    this._idleMonitor = IdleMonitor.get_core()
   }
 
   enable () {
+    this._settings = ExtensionUtils.getSettings()
+
+    this._settings_connection = this._settings.connect(`changed::${HIDE_TIME_KEY}`, this._hideTimeChanged.bind(this))
+
+    this._cursorTracker = CursorTracker.get_for_display(global.display)
+    this._idleMonitor = IdleMonitor.get_core()
+
     this._addIdleWatch(this._settings.get_double(HIDE_TIME_KEY))
   }
 
   disable () {
     this._removeIdleWatch()
+
+    if (this._settings_connection) {
+      this._settings.disconnect(this._settings_connection)
+      this._settings_connection = null
+    }
+
   }
 
   _hideTimeChanged () {
-    if (ExtensionUtils.getCurrentExtension().state === ExtensionUtils.ExtensionState.ENABLED) {
-      this._addIdleWatch(this._settings.get_double(HIDE_TIME_KEY))
-    }
+    this._addIdleWatch(this._settings.get_double(HIDE_TIME_KEY))
   }
 
   _addIdleWatch (idleTime) {
@@ -55,10 +60,12 @@ class Extension {
   _removeIdleWatch () {
     if (this._idle_watch) {
       this._idleMonitor.remove_watch(this._idle_watch)
+      this._idle_watch = null
     }
 
     if (this._active_watch) {
       this._idleMonitor.remove_watch(this._active_watch)
+      this._active_watch = null
     }
   }
 
