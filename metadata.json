@@ -1,6 +1,6 @@
 {
   "name": "Hide Cursor",
-  "description": "Hides mouse cursor after user inactivity.",
+  "description": "Hide mouse cursor after period of inactivity.",
   "uuid": "hidecursor@kaylyn.ink",
   "shell-version": [
     "3.36"

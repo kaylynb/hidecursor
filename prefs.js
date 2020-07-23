@@ -22,11 +22,13 @@ const ExtensionUtils = imports.misc.extensionUtils;
 
 let settings;
 
-function init() { // eslint-disable-line no-unused-vars
+/* exported init */
+function init() {
     settings = ExtensionUtils.getSettings();
 }
 
-function buildPrefsWidget() { // eslint-disable-line no-unused-vars
+/* exported buildPrefsWidget */
+function buildPrefsWidget() {
     const frame = new Gtk.VBox({ border_width: 10, spacing: 6 });
 
     frame.pack_start(new Gtk.Label({

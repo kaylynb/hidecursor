@@ -77,6 +77,7 @@ class Extension {
     }
 }
 
-function init() { // eslint-disable-line no-unused-vars
+/* exported init */
+function init() {
     return new Extension();
 }
